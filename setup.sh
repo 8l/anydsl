@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THREADS=`cat /proc/cpuinfo | grep processor | echo \`wc -l\``
+THREADS=2
 CUR=`pwd`
 BRANCH=master
 
