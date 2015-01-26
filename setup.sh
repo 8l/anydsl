@@ -44,6 +44,6 @@ export PATH=${CUR}/llvm_install/bin:${CUR}/impala/build/bin:$PATH
 cd ${CUR}
 
 echo
-echo "put the following line into your '~/.bashrc' in order to have 'impala' in your path:"
+echo "Put the following line into your '~/.bashrc' in order to have 'impala' and 'clang' in your path:"
 echo "export PATH=${CUR}/llvm_install/bin:${CUR}/impala/build/bin:\$PATH"
-
+echo "WARNING: Note that this will override any system installation of llvm/clang."
