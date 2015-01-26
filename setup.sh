@@ -15,8 +15,8 @@ tar xf cfe-3.4.2.src.tar.gz
 rm cfe-3.4.2.src.tar.gz
 mv cfe-3.4.2.src clang
 cd ${CUR}
-git clone https://github.com/AnyDSL/thorin.git -b ${BRANCH}
-git clone https://github.com/AnyDSL/impala.git -b ${BRANCH}
+git clone git@github.com:AnyDSL/thorin.git -b ${BRANCH}
+git clone git@github.com/AnyDSL/impala.git -b ${BRANCH}
 
 # create build/install dirs
 mkdir -p llvm_build
