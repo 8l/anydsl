@@ -2,7 +2,7 @@
 
 THREADS=2
 CUR=`pwd`
-BRANCH=master
+BRANCH=sccp
 
 # fetch sources
 wget http://llvm.org/releases/3.4.2/llvm-3.4.2.src.tar.gz
