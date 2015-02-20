@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 filename=$(basename "$1")
 name=`echo $filename | cut -f1 -d'.'`
@@ -14,3 +14,10 @@ impala --emit-llvm -bta ../"$1"
 
 echo "# Compiling program with infrastrcuture ..."
 clang "$name".bc call_impala_main.o
+
+echo "# Running the compiled program ..."
+./a.out
+
+echo "-> return code was ($?)"
+
+cd ..
