@@ -1,0 +1,15 @@
+fn power(a: int, mut b: int) -> int {
+    let mut result = 1;
+    while (b != 0) {
+        result *= a;
+        --b;
+    }
+
+    result
+}
+
+fn main(a : int, b : int) -> int {
+    let mut res = -1;
+    res = power(a, 3);
+    res
+}
