@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 git pull
 cd thorin
 git pull
