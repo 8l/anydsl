@@ -1,0 +1,24 @@
+static mut global_a : i32;
+static mut global_b : i32;
+
+fn power(a: int, mut b: int) -> int {
+    let mut result = 1;
+    while (b != 0) {
+        result *= a;
+        --b;
+    }
+
+    result
+}
+
+fn gl(a : int, b : int) -> (){
+    global_a = a;
+    global_b = b;
+}
+
+fn main(a : int, b : int) -> int {
+    let mut res = -1;
+    gl(a, b);
+    res = power(global_a, global_b);
+    res
+}

@@ -23,6 +23,10 @@ int main(int argc, const char* argv[]) {
 	if(argc > 2) {
             b = atoi(argv[2]);
         }
+	/*if(argc > 3) {
+	    global = atoi(argv[3]);
+	}*/
+	
     }
         
     printf("-> return code was (%i)\n", main_impala(a, b));
