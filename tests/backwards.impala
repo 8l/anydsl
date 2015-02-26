@@ -1,0 +1,21 @@
+fn backwards(mut a: int, mut b: int) -> int {
+    if(a == 0) {
+        a = a + 1;
+        b = b + 1;
+    } else {
+        a = a - 1;
+        b = b - 1;
+    }
+
+    if(b != 0) {
+        a + b
+    } else {
+        a - b
+    }
+}
+
+fn main(a : int, b : int) -> int {
+    let mut res = -1;
+    res = backwards(5, b);
+    res
+}

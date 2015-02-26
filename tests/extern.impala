@@ -1,0 +1,11 @@
+extern fn ex1 () -> () {
+
+}
+
+extern fn ex2 () -> () {
+
+}
+
+fn main (a : int, b : int) -> int {
+	31	
+}
