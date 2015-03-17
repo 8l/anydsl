@@ -10,22 +10,25 @@ cd tmp
 #clang ../impala/test/infrastructure/call_impala_main.c -O2 -c
 #clang ../tests/infrastructure/call_impala_main.c -O2 -c
 
-#if [ $2 == "-bta" ]; then
-#	echo "# Running impala (only bta) on file $1 ..."
-#	impala --emit-llvm -bta ../"$1"
-#	
-#	arg_a="$3"
-#	arg_b="$4"
-#else
-        echo "# Running impala on file $1 ..."
+if [ $2 == "-opt" ]; then
+        echo "# Running impala (opt) on file $1 ..."
         impala -cogen --emit-llvm -Othorin ../"$1" 2> main.cc
+        cat main.cc
+        echo -e "\n\nint main() {\n\tWorld world;\n\t$3(world$4);\n\treturn 0;\n}" >> main.cc
+        mv main.cc /home/tobias/cogen-explicit/test/main.cc
+        cd /home/tobias/cogen-explicit/test/
+        make
+        build/default/loop-gen
+else
+        echo "# Running impala on file $1 ..."
+        impala -cogen --emit-thorin ../"$1" 2> main.cc
 	cat main.cc
-	echo -e "\n\nint main() {\n\tWorld world;\n\t$2(world);\n\treturn 0;\n}" >> main.cc
+	echo -e "\n\nint main() {\n\tWorld world;\n\t$2(world$3);\n\treturn 0;\n}" >> main.cc
 	mv main.cc /home/tobias/cogen-explicit/test/main.cc
 	cd /home/tobias/cogen-explicit/test/
 	make
 	build/default/loop-gen
-#fi
+fi
 
 #echo "# Compiling program with infrastrcuture ..."
 #clang "$name".bc call_impala_main.o
